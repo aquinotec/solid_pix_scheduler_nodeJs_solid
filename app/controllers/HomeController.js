@@ -2,21 +2,16 @@ const PixController = require('../controllers/PixController');
 
 class HomeController {
   index(req, res) {
-    res.render('/home/index');
+    res.render('home/index');
   }
 
   processForm(req, res) {
     const { pixKey, pixValue } = req.body;
-
-    // Cria um novo Pix
-    const pix = {
-      key: pixKey,
-      value: pixValue,
-    };
-
-    // adicionar o Pix ao db atraves do controller
-    PixController.create(pix);
-
+    console.log(res.status)
+    const pixData = { key: pixKey, value: pixValue };
+  
+    PixController.create(pixData);
+  
     res.redirect('/success');
   }
 

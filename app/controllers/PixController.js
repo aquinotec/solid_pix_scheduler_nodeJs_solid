@@ -3,15 +3,16 @@ const Database = require('../models/Database');
 
 class PixController {
   create(req, res) {
-    const { qrCode, key } = req.body;
+    const { value, key } = req;
 
-    const pix = new Pix(qrCode, key);
+    const pix = new Pix(key, value);
 
     // Adiciona o Pix ao db
     Database.addPix(pix);
-
-    //adicionar validação para retorno
-    res.status(200).json({ message: 'Pix criado com sucesso!' });
+    //console.log(res)
+    //adicionar validação para retorno quando houver requisição futura
+    
+    //res.status(200).json({ message: 'Pix criado com sucesso!' });
   }
 
 /*

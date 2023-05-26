@@ -1,7 +1,7 @@
 class Pix {
-    constructor(qrCode, key) {
-      this.qrCode = qrCode;
+    constructor(key, value) {
       this.key = key;
+      this.value = value;
     }
   
   }
